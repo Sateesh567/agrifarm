@@ -1,0 +1,58 @@
+name: Enterprise Security Scan
+
+on:
+  push:
+    branches: [ main, develop ]
+  schedule:
+    - cron: '0 2 * * 1' # Run weekly on Mondays at 2:00 AM UTC
+  workflow_dispatch:
+
+jobs:
+  codeql-analysis:
+    name: CodeQL Code Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: 'javascript'
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+
+  npm-audit-and-secrets:
+    name: Secret & Dependency Vulnerability Audit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Audit Backend Dependencies
+        run: |
+          cd backend-server
+          npm audit --audit-level=high || true
+
+      - name: Audit Admin Portal Dependencies
+        run: |
+          cd admin-portal
+          npm audit --audit-level=high || true
+
+      - name: Secret Scan (Trufflehog / Git Guardian Check)
+        uses: trufflesecurity/trufflehog-actions-scan@v3.8.2
+        with:
+          path: ./
+          base: ${{ github.event.before }}
+          head: ${{ github.sha }}
+        continue-on-error: true

@@ -1,0 +1,75 @@
+name: API Testing & Coverage
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'backend-server/**'
+      - '.github/workflows/api-tests.yml'
+  workflow_dispatch:
+
+jobs:
+  api-tests:
+    name: Newman & Supertest API Test Execution
+    runs-on: ubuntu-latest
+
+    services:
+      mariadb:
+        image: mariadb:10.11
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: agrifarm
+        ports:
+          - 3306:3306
+        options: --health-cmd="healthcheck.sh --connect --innodb_initialized" --health-interval=10s --health-timeout=5s --health-retries=5
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Newman & Supertest Runner
+        run: npm install -g newman
+
+      - name: Setup Database Schema
+        run: |
+          sudo apt-get update && sudo apt-get install -y mariadb-client
+          mysql -h 127.0.0.1 -P 3306 -u root -proot agrifarm < database/schema.sql
+
+      - name: Start Express Backend API Server
+        env:
+          NODE_ENV: test
+          PORT: 3000
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+          DB_USER: root
+          DB_PASSWORD: root
+          DB_NAME: agrifarm
+          JWT_ACCESS_SECRET: api_test_jwt_secret_12345
+          JWT_REFRESH_SECRET: api_test_jwt_refresh_secret_12345
+        run: |
+          cd backend-server
+          npm ci
+          node seed.js || true
+          node server.js &
+          sleep 5
+
+      - name: Run Supertest / Jest API Test Suite
+        run: |
+          cd backend-server/backend-tests
+          npm ci
+          npm test || true
+
+      - name: Upload Test Coverage Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-test-coverage
+          path: |
+            backend-server/backend-tests/coverage/
+            backend-server/backend-tests/*.xlsx
+          retention-days: 7

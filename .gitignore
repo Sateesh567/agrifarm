@@ -1,35 +1,66 @@
 # ── Android / Gradle ─────────────────────────────────────────
 *.iml
-.gradle
+.gradle/
 /local.properties
 /.idea/
 .DS_Store
-/build
+/build/
+app/build/
 /captures
 .externalNativeBuild
 .cxx
 local.properties
 
-# ── Environment files (NEVER commit real .env files) ─────────
-# Actual .env files contain secrets — must never go into Git
+# ── Environment & Secret files (NEVER COMMIT SECRETS) ─────────
+.env
+.env.local
+.env.development
+.env.production
+.env.staging
 backend-server/.env
 admin-portal/.env
+appium-test/.env
 
-# .env.example files are safe to commit (no real secrets)
+# Allow example env files
+!.env.example
 !backend-server/.env.example
 !admin-portal/.env.example
+!appium-test/.env.example
 
-# ── Node.js ───────────────────────────────────────────────────
+# ── Node.js / Packages ───────────────────────────────────────
 node_modules/
 npm-debug.log*
-backend-server/logs/*.log
-backend-server/log.txt
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# ── Admin Portal build output ─────────────────────────────────
+# ── React / Vite / Web Build Artifacts ───────────────────────
+dist/
 admin-portal/dist/
 admin-portal/.vite/
+.next/
+out/
+
+# ── Logs & Debug Files ───────────────────────────────────────
+*.log
+logs/
+backend-server/logs/
+backend-server/log.txt
+
+# ── QA Reports & Generated Test Artifacts ────────────────────
+coverage/
+allure-results/
+allure-report/
+test-results/
+selenium-reports/
+*.xlsx
+screenshots/*.png
+!appium-test/AgriFarm_Appium_TestCases.xlsx
+!backend-server/backend-tests/AgriFarm_Backend_TestCases.xlsx
 
 # ── Uploaded images (generated at runtime) ────────────────────
 backend-server/public/images/*.png
 backend-server/public/images/*.jpg
 backend-server/public/images/*.webp
+!backend-server/public/images/organic_farm.png
+!backend-server/public/images/seeds_shop.png

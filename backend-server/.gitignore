@@ -1,7 +1,11 @@
-# AgriFarm Backend .gitignore
+# Backend Node.js gitignore
 node_modules/
 .env
+.env.local
+!.env.example
 logs/
-public/images/
 *.log
-*.pid
+log.txt
+coverage/
+public/uploads/*
+!public/uploads/.gitkeep

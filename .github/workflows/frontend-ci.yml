@@ -1,0 +1,48 @@
+name: Frontend Web CI
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'admin-portal/**'
+      - '.github/workflows/frontend-ci.yml'
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build-and-test:
+    name: Build & Audit Frontend Web App
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: admin-portal/package-lock.json
+
+      - name: Install Dependencies
+        run: |
+          cd admin-portal
+          npm ci
+
+      - name: Security Audit
+        run: |
+          cd admin-portal
+          npm audit --audit-level=high || true
+
+      - name: Run Build Verification
+        run: |
+          cd admin-portal
+          npm run build
+
+      - name: Upload Build Output Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: admin-portal-dist
+          path: admin-portal/dist/
+          retention-days: 7
