@@ -49,10 +49,10 @@ jobs:
           cd admin-portal
           npm audit --audit-level=high || true
 
-      - name: Secret Scan (Trufflehog / Git Guardian Check)
-        uses: trufflesecurity/trufflehog-actions-scan@v3.8.2
+      - name: Secret Scan (Trufflehog Check)
+        uses: trufflesecurity/trufflehog@main
         with:
           path: ./
-          base: ${{ github.event.before }}
-          head: ${{ github.sha }}
+          base: ""
+          head: ""
         continue-on-error: true

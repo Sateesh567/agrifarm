@@ -3,9 +3,6 @@ name: Admin Dashboard CI
 on:
   push:
     branches: [ main, develop ]
-    paths:
-      - 'admin-portal/**'
-      - '.github/workflows/admin-ci.yml'
   pull_request:
     branches: [ main, develop ]
 
