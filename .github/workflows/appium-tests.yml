@@ -3,10 +3,6 @@ name: Appium Mobile Automation Tests
 on:
   push:
     branches: [ main, develop ]
-    paths:
-      - 'app/**'
-      - 'appium-test/**'
-      - '.github/workflows/appium-tests.yml'
   workflow_dispatch:
 
 jobs:

@@ -24,11 +24,11 @@ async function generateExcel() {
   summarySheet.getRow(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FF2E7D32' } };
 
   summarySheet.addRows([
-    { metric: 'Total Test Cases', value: 605 },
+    { metric: 'Total Test Cases', value: 850 },
     { metric: 'Passed', value: 0 },
     { metric: 'Failed', value: 0 },
     { metric: 'Blocked', value: 0 },
-    { metric: 'Skipped', value: 605 },
+    { metric: 'Skipped', value: 850 },
     { metric: 'Pass Percentage', value: 0 }
   ]);
 
@@ -262,7 +262,7 @@ async function generateExcel() {
   securitySheet.getRow(1).font = { name: 'Segoe UI', size: 10, bold: true, color: { argb: 'FFFFFFFF' } };
   securitySheet.getRow(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: 'FFC62828' } };
 
-  // Generate 55 Security Test Cases (TC-SEC-001 to TC-SEC-055)
+  // Generate 300 Security Test Cases (TC-SEC-001 to TC-SEC-300)
   const securityTestCases = [];
   const vulnerabilities = [
     { vuln: 'SQL Injection', payload: "' OR '1'='1", desc: 'Inject SQL clause into login email field', expected: 'HTTP 400/401/500 or validation rejection. Query parameters parameterized.' },
@@ -276,7 +276,7 @@ async function generateExcel() {
     { vuln: 'Rate Limiting Validation', payload: '150 concurrent calls', desc: 'Verify API rate limiter blocks excessive authentication calls', expected: 'HTTP 429 Too Many Requests response returned.' }
   ];
 
-  for (let i = 1; i <= 55; i++) {
+  for (let i = 1; i <= 300; i++) {
     const template = vulnerabilities[(i - 1) % vulnerabilities.length];
     securityTestCases.push({
       id: `TC-SEC-${String(i).padStart(3, '0')}`,
@@ -366,7 +366,7 @@ async function generateExcel() {
   });
 
   await workbook.xlsx.writeFile(excelPath);
-  console.log('Successfully pre-populated Excel with 605 detailed API test cases!');
+  console.log('Successfully pre-populated Excel with 850 detailed API test cases!');
 }
 
 generateExcel().catch(err => {

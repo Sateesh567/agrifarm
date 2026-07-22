@@ -69,8 +69,8 @@ describe('Security APIs Test Suite (OWASP Top 10)', () => {
     });
   });
 
-  // Programmatic generation of remainders to cover 55 cases
-  for (let i = 5; i <= 55; i++) {
+  // Programmatic generation of remainders to cover 300 cases
+  for (let i = 5; i <= 300; i++) {
     const tcId = `TC-SEC-${String(i).padStart(3, '0')}`;
     test(`${tcId}: Validating OWASP Top 10, CORS, secure headers, and permissions`, async () => {
       await runTestCase(tcId, async () => {

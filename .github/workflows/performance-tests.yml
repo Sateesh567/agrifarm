@@ -1,12 +1,9 @@
 name: Performance & Load Testing
 
 on:
-  workflow_dispatch:
   push:
-    branches: [ main ]
-    paths:
-      - 'backend-server/backend-tests/tests/performance.test.js'
-      - '.github/workflows/performance-tests.yml'
+    branches: [ main, develop ]
+  workflow_dispatch:
 
 jobs:
   performance-tests:

@@ -3,9 +3,6 @@ name: API Testing & Coverage
 on:
   push:
     branches: [ main, develop ]
-    paths:
-      - 'backend-server/**'
-      - '.github/workflows/api-tests.yml'
   workflow_dispatch:
 
 jobs:
