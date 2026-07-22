@@ -15,6 +15,6 @@
     "webdriverio": "^8.24.0",
     "appium": "^2.11.2",
     "appium-uiautomator2-driver": "^3.0.10",
-    "mocha": "^10.2.0"
+    "mocha": "^11.7.6"
   }
 }
