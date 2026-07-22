@@ -1,0 +1,7 @@
+# AgriFarm Backend .gitignore
+node_modules/
+.env
+logs/
+public/images/
+*.log
+*.pid

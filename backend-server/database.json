@@ -1,0 +1,91 @@
+{
+  "users": [
+    {
+      "uid": "farmer1",
+      "name": "Rajesh Kumar",
+      "email": "farmer@agrifarm.com",
+      "phone": "9876543210",
+      "role": "FARMER",
+      "address": "Salem, Tamil Nadu"
+    },
+    {
+      "uid": "seller1",
+      "name": "Bhoomiputra Merchant",
+      "email": "seller@agrifarm.com",
+      "phone": "8765432109",
+      "role": "SHOP_OWNER",
+      "address": "Coimbatore, Tamil Nadu"
+    }
+  ],
+  "shops": [
+    {
+      "id": "S1",
+      "ownerId": "seller1",
+      "name": "Bhoomi Organics",
+      "address": "Coimbatore South, TN",
+      "description": "Lush fertilizers, premium seeds, and modern tools",
+      "category": "Seeds & Fertilizers",
+      "rating": 4.8,
+      "status": "APPROVED",
+      "imageUrl": "shop_banner_placeholder"
+    },
+    {
+      "id": "S2",
+      "ownerId": "seller2",
+      "name": "Salem Agro Field",
+      "address": "Salem North, TN",
+      "description": "Direct farm supplies, organic manures, and weed solutions",
+      "category": "Organic Manures",
+      "rating": 4.5,
+      "status": "PENDING",
+      "imageUrl": "shop_banner_placeholder"
+    }
+  ],
+  "products": [
+    {
+      "id": "P1",
+      "shopId": "S1",
+      "name": "Premium Tomato Seeds",
+      "category": "Seeds",
+      "price": 249.0,
+      "stock": 100,
+      "description": "High disease resistance, quick sprouting"
+    },
+    {
+      "id": "P2",
+      "shopId": "S1",
+      "name": "Organic NPK Fertilizer",
+      "category": "Fertilizers",
+      "price": 450.0,
+      "stock": 150,
+      "description": "Highly potent nitrogen, organic"
+    },
+    {
+      "id": "P3",
+      "shopId": "S1",
+      "name": "Bhoomi Power Tiller",
+      "category": "Tools",
+      "price": 7499.0,
+      "stock": 10,
+      "description": "Motorized handheld soil tiller"
+    }
+  ],
+  "orders": [
+    {
+      "orderId": "ORD-8571",
+      "buyerId": "farmer1",
+      "shopId": "S1",
+      "items": [
+        {
+          "productId": "P1",
+          "name": "Premium Tomato Seeds",
+          "quantity": 2,
+          "price": 249.0
+        }
+      ],
+      "totalAmount": 498.0,
+      "status": "DELIVERED",
+      "timestamp": 1783092800000
+    }
+  ]
+}

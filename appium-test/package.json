@@ -1,0 +1,20 @@
+{
+  "name": "agrifarm-appium-tests",
+  "version": "1.0.0",
+  "description": "Appium E2E Automation Framework for AgriFarm Android Native Application",
+  "main": "index.js",
+  "scripts": {
+    "seed-excel": "node utils/excelGenerator.js",
+    "test": "mocha tests/setup.js tests/**/*.test.js --timeout 180000 --exit"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0"
+  },
+  "devDependencies": {
+    "@wdio/cli": "^8.24.0",
+    "webdriverio": "^8.24.0",
+    "appium": "^2.11.2",
+    "appium-uiautomator2-driver": "^3.0.10",
+    "mocha": "^10.2.0"
+  }
+}

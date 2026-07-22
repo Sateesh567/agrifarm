@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Network Security Config for AgriFarm
+    - Production: HTTPS only
+    - Debug/Dev: Allow cleartext to localhost and 10.0.2.2 (emulator) ONLY
+    This replaces the dangerous android:usesCleartextTraffic="true" manifest flag
+-->
+<network-security-config>
+    <!-- Default: HTTPS only for all domains -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+
+    <!-- Allow cleartext for localhost (emulator) and 10.0.2.2 (emulator host) -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">localhost</domain>
+        <domain includeSubdomains="false">10.0.2.2</domain>
+        <!-- Physical device: your dev machine's LAN IP -->
+        <domain includeSubdomains="false">192.168.1.16</domain>
+    </domain-config>
+</network-security-config>

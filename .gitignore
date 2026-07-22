@@ -1,0 +1,35 @@
+# ── Android / Gradle ─────────────────────────────────────────
+*.iml
+.gradle
+/local.properties
+/.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# ── Environment files (NEVER commit real .env files) ─────────
+# Actual .env files contain secrets — must never go into Git
+backend-server/.env
+admin-portal/.env
+
+# .env.example files are safe to commit (no real secrets)
+!backend-server/.env.example
+!admin-portal/.env.example
+
+# ── Node.js ───────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+backend-server/logs/*.log
+backend-server/log.txt
+
+# ── Admin Portal build output ─────────────────────────────────
+admin-portal/dist/
+admin-portal/.vite/
+
+# ── Uploaded images (generated at runtime) ────────────────────
+backend-server/public/images/*.png
+backend-server/public/images/*.jpg
+backend-server/public/images/*.webp

@@ -1,0 +1,120 @@
+<resources>
+    <!-- App Name -->
+    <string name="app_name">agrifarm</string>
+    <string name="app_display_name">AgroLink</string>
+    <string name="app_version">Version 2.4.1 (Stable Build)</string>
+
+    <!-- Auth Screen Titles -->
+    <string name="title_farmer_login">Farmer Login</string>
+    <string name="title_seller_login">Shop Owner Login</string>
+    <string name="title_farmer_register">Farmer Registration</string>
+    <string name="title_owner_register">Shop Owner Registration</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_edit_profile">Edit Profile</string>
+    <string name="title_customer_support">Customer Support</string>
+    <string name="title_seller_settings">Seller Settings</string>
+
+    <!-- Field Labels -->
+    <string name="label_email_or_phone">Email or Phone</string>
+    <string name="label_email_address">Email Address</string>
+    <string name="label_password">Password</string>
+    <string name="label_confirm_password">Confirm Password</string>
+    <string name="label_full_name">Full Name</string>
+    <string name="label_phone_number">Phone Number</string>
+    <string name="label_delivery_address">Delivery Address</string>
+    <string name="label_owner_name">Owner Name</string>
+    <string name="label_shop_name">Shop Name</string>
+    <string name="label_shop_address">Shop Address</string>
+    <string name="label_shop_category">Shop Category (e.g. Seeds, Fertilizers, Tools)</string>
+    <string name="label_shop_description">Shop Description (Optional)</string>
+    <string name="label_name">Name</string>
+    <string name="label_email">Email</string>
+    <string name="label_phone">Phone Number</string>
+    <string name="label_address">Address</string>
+    <string name="label_total_land_area">Total Land Area (Acres)</string>
+    <string name="label_major_crops">Major Crops</string>
+    <string name="label_language_preference">Language Preference</string>
+    <string name="lang_english">English</string>
+    <string name="lang_telugu">Telugu</string>
+    <string name="label_new_password">New Password</string>
+    <string name="label_confirm_new_password">Confirm New Password</string>
+    <string name="label_current_password">Current Password</string>
+
+    <!-- Buttons -->
+    <string name="btn_login">Login</string>
+    <string name="btn_register_now">Register Now</string>
+    <string name="btn_submit_for_approval">Submit for Approval</string>
+    <string name="btn_forgot_password">Forgot Password?</string>
+    <string name="btn_no_account_register">Don\'t have an account? Register</string>
+    <string name="btn_take_photo">Take Photo</string>
+    <string name="btn_from_gallery">From Gallery</string>
+    <string name="btn_ok">OK</string>
+    <string name="btn_save_changes">Save Changes</string>
+    <string name="btn_logout">Logout from AgriFarm</string>
+    <string name="btn_change_password">Change Password</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_confirm">Confirm</string>
+    <string name="btn_edit">Edit</string>
+
+    <!-- Validation Errors -->
+    <string name="err_email_required">Email is required</string>
+    <string name="err_password_required">Password is required</string>
+    <string name="err_fill_required_fields">Please fill all required fields</string>
+    <string name="err_passwords_mismatch">Passwords do not match</string>
+    <string name="err_name_email_required">Name and Email are required</string>
+    <string name="err_registration_failed">Registration failed</string>
+    <string name="err_login_failed">Login failed</string>
+    <string name="err_profile_update_failed">Failed to update profile</string>
+    <string name="err_shop_submit_partial">Account created, but shop request failed: </string>
+    <string name="err_new_password_required">New password cannot be empty</string>
+    <string name="err_password_too_short">Password must be at least 6 characters</string>
+
+    <!-- Success / Info Messages -->
+    <string name="msg_profile_updated">Profile updated successfully!</string>
+    <string name="msg_password_changed">Password changed successfully!</string>
+    <string name="msg_registration_submitted_title">Registration Submitted</string>
+    <string name="msg_registration_submitted_body">Your account registration and shop request have been submitted. Please wait for admin approval to log in.</string>
+
+    <!-- Content Descriptions (Accessibility) -->
+    <string name="cd_back">Back</string>
+    <string name="cd_menu">Menu</string>
+    <string name="cd_search">Search</string>
+    <string name="cd_logout">Logout</string>
+    <string name="cd_shop_image">Shop Image</string>
+    <string name="cd_profile_picture">Profile Picture</string>
+
+    <!-- Settings Screen -->
+    <string name="settings_preferences_header">PREFERENCES</string>
+    <string name="settings_security_header">SECURITY &amp; SUPPORT</string>
+    <string name="settings_pref_notifications">Push Notifications</string>
+    <string name="settings_pref_notifications_desc">Alerts for crop prices &amp; orders</string>
+    <string name="settings_pref_biometric">Biometric Login</string>
+    <string name="settings_pref_biometric_desc">Secure access with Touch/Face ID</string>
+    <string name="settings_pref_dark_mode">Dark Mode</string>
+    <string name="settings_pref_dark_mode_desc">Reduce eye strain at night</string>
+    <string name="settings_menu_account_security">Account Security</string>
+    <string name="settings_menu_privacy_policy">Privacy Policy</string>
+    <string name="settings_menu_support">AgriFarm Support</string>
+    <string name="settings_menu_about">About AgriFarm</string>
+    <string name="dialog_change_password_title">Change Password</string>
+
+    <!-- SharedPreferences Keys -->
+    <string name="prefs_file">agrifarm_prefs</string>
+    <string name="pref_notifications_enabled">notifications_enabled</string>
+    <string name="pref_biometric_enabled">biometric_enabled</string>
+    <string name="pref_dark_mode_enabled">dark_mode_enabled</string>
+
+    <!-- Bottom Navigation Labels -->
+    <string name="nav_home">Home</string>
+    <string name="nav_categories">Categories</string>
+    <string name="nav_orders">Orders</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_products">Products</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Shop Status -->
+    <string name="status_pending">PENDING</string>
+    <string name="status_rejected">REJECTED</string>
+    <string name="status_approved">APPROVED</string>
+</resources>
