@@ -71,6 +71,8 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.cardview)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.material)
 
     // Firebase
     implementation(platform(libs.firebase.bom))

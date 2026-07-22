@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS `refresh_tokens` (
   INDEX `idx_user_id`   (`user_id`),
   INDEX `idx_expires`   (`expires_at`),
   FOREIGN KEY (`user_id`) REFERENCES `users` (`uid`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ─── 3. SHOPS ────────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS `shops` (
@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `wishlist` (
   INDEX `idx_product` (`product_id`),
   FOREIGN KEY (`user_id`)    REFERENCES `users`    (`uid`) ON DELETE CASCADE,
   FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)  ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ─── 6. ORDERS ───────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS `orders` (
@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `order_items` (
   FOREIGN KEY (`orderId`)   REFERENCES `orders`   (`orderId`) ON DELETE CASCADE,
   FOREIGN KEY (`productId`) REFERENCES `products` (`id`)      ON DELETE RESTRICT,
   CONSTRAINT `chk_quantity` CHECK (`quantity` > 0)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ─── 8. PAYMENTS ─────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS `payments` (
@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `payments` (
   INDEX `idx_order_id` (`order_id`),
   INDEX `idx_status`   (`status`),
   FOREIGN KEY (`order_id`) REFERENCES `orders` (`orderId`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ─── 9. REVIEWS ──────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS `reviews` (
@@ -223,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `inventory_logs` (
   INDEX `idx_reason`   (`reason`),
   INDEX `idx_created`  (`created_at`),
   FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ─── 12. AUDIT LOGS ──────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS `audit_logs` (
@@ -237,7 +237,8 @@ CREATE TABLE IF NOT EXISTS `audit_logs` (
   `ip_address`  VARCHAR(45)  DEFAULT NULL,
   `user_agent`  TEXT         DEFAULT NULL,
   `created_at`  TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ─── 13. MANDI PRICES ─────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS `mandi_prices` (
